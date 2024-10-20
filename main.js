@@ -114,9 +114,8 @@ window.addEventListener("scroll", function () {
   document.getElementById("progressBar").style.width = scrollPercentage + "%";
 });
 
-// Gallery hover effects
+// Gallery data and effects
 document.addEventListener("DOMContentLoaded", function () {
-  // Data untuk gallery descriptions
   const galleryData = [
     {
       title: "Akane's Contemplation",
@@ -156,30 +155,24 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
-  // Membuat dan menambahkan overlay untuk setiap gallery item
+  // Populate gallery items with data
   const galleryItems = document.querySelectorAll(".gallery-item");
-
-  galleryItems.forEach((item, index) => {
+  galleryItems.forEach((item) => {
+    const index = parseInt(item.dataset.galleryIndex);
     const data = galleryData[index];
 
-    // Membuat overlay content
-    const overlayContent = `
-            <div class="gallery-overlay">
-                <div class="gallery-content">
-                    <h3 class="gallery-title">${data.title}</h3>
-                    <p class="gallery-description">${data.description}</p>
-                    <div class="gallery-tags">
-                        ${data.tags
-                          .map(
-                            (tag) => `<span class="gallery-tag">#${tag}</span>`
-                          )
-                          .join(" ")}
-                    </div>
-                </div>
-            </div>
-        `;
+    if (data) {
+      const title = item.querySelector(".gallery-title");
+      const description = item.querySelector(".gallery-description");
+      const tags = item.querySelector(".gallery-tags");
 
-    // Menambahkan overlay ke gallery item
-    item.insertAdjacentHTML("beforeend", overlayContent);
+      if (title) title.textContent = data.title;
+      if (description) description.textContent = data.description;
+      if (tags) {
+        tags.innerHTML = data.tags
+          .map((tag) => `<span class="gallery-tag">#${tag}</span>`)
+          .join(" ");
+      }
+    }
   });
 });
