@@ -1,0 +1,496 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+}
+
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images3.alphacoders.com/136/thumb-1920-1368420.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e0ffff;
+}
+
+.custom-nav {
+  background-color: lavenderblush;
+  transition: all 0.3s ease;
+  padding: 1rem 0;
+}
+
+.custom-nav.scrolled {
+  background-color: rgba(255, 240, 245, 0.95);
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-nav .navbar-brand {
+  color: #ff69b4;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.custom-nav .nav-link {
+  color: #ff69b4;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.custom-nav .nav-link:hover {
+  color: #ff69b4;
+}
+
+.custom-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff1493;
+  transition: width 0.3s ease;
+}
+
+.custom-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.custom-nav .navbar-toggler {
+  border-color: #ff69b4;
+}
+
+.custom-nav .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 105, 180, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Profile Section */
+.profile-section {
+  background-color: lavenderblush;
+  padding: 100px 0;
+}
+
+.profile-img {
+  border-radius: 50%;
+  border: 5px solid #a0a7e5;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Gallery Section Styles */
+.gallery-section {
+  padding: 100px 0;
+  background-color: lavender;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(106, 13, 173, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-content {
+  padding: 20px;
+  color: white;
+  text-align: center;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-content {
+  transform: translateY(0);
+}
+
+.gallery-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.gallery-description {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #e0ffff;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.gallery-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gallery-tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .gallery-title {
+    font-size: 1.2rem;
+  }
+
+  .gallery-description {
+    font-size: 0.9rem;
+  }
+
+  .gallery-tag {
+    font-size: 0.7rem;
+  }
+}
+
+/* List Items Animation */
+.list-unstyled li {
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.list-unstyled li:hover {
+  opacity: 1;
+  transform: translateX(10px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 70vh;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .profile-section,
+  .gallery-section {
+    padding: 50px 0;
+  }
+}
+
+.clips-section {
+  padding: 100px 0;
+  background-color: lavenderblush;
+}
+
+.clips-section .ratio {
+  max-width: 900px; /* Batas maksimal lebar video */
+  margin: 0 auto; /* Video berada di tengah layar */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clips-section .ratio:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.quotes-moments-section {
+  padding: 100px 0;
+  background-color: #e6e6fa;
+}
+
+.quotes-moments-section img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.quotes-moments-section img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blockquote {
+  font-style: italic;
+  border-left: 5px solid #6a0dad;
+  padding-left: 15px;
+  margin-top: 20px;
+  color: #4b0082;
+}
+
+.blockquote-footer {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Instagram Section */
+.instagram-section {
+  padding: 100px 0;
+  background-color: #fce4ec;
+}
+
+.instagram-media {
+  background: #fff;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 10px 0 rgba(0, 0, 0, 0.15);
+  margin: 1px auto; /* Changed from margin: 1px */
+  max-width: 540px;
+  min-width: 326px;
+  padding: 0;
+  width: calc(100% - 2px);
+  display: block;
+}
+
+.instagram-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.instagram-section a {
+  color: #3897f0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Footer Styles */
+.footer-section {
+  background-color: lavenderblush;
+  padding: 80px 0 40px;
+  color: #6a0dad;
+}
+
+.footer-heading-name {
+  color: #ff69b4;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-heading-links {
+  color: #ff69b4;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-heading-contact {
+  color: #ff69b4;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-heading-name::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 170px;
+  height: 2px;
+  background-color: #ff69b4;
+}
+
+.footer-heading-links::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 120px;
+  height: 2px;
+  background-color: #ff69b4;
+}
+
+.footer-heading-contact::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 85px;
+  height: 2px;
+  background-color: #ff69b4;
+}
+
+.footer-text {
+  color: #6a0dad;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #6a0dad;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-links a:hover {
+  color: #ff69b4;
+  padding-left: 5px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  color: #ff69b4;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: #c71585;
+  transform: translateY(-3px);
+}
+
+.footer-divider {
+  border-color: rgba(106, 13, 173, 0.1);
+  margin: 20px 0;
+}
+
+.footer-bottom {
+  color: #6a0dad;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 50px 0 30px;
+  }
+
+  .footer-heading {
+    margin-top: 20px;
+  }
+}
+
+/* Style untuk tombol back-to-top */
+.btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  display: none;
+}
+
+/* Hover effect untuk tombol */
+.btn-back-to-top:hover {
+  background-color: #c71585;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-back-to-top.show {
+  display: block;
+  animation: fadeIn 0.5s;
+}
+
+/*Progress bar*/
+#progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background-color: #ff69b4;
+  z-index: 9999;
+  transition: width 0.2s ease;
+}
+
+/* Efek floating untuk logo Instagram dan Twitter */
+.floating {
+  position: relative;
+  animation: floating 3s ease-in-out infinite;
+}
+
+/* Animasi floating */
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  } /* Mengambang ke atas */
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect untuk logo */
+.floating:hover {
+  transform: scale(1.2);
+}
